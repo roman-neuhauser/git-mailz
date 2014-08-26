@@ -1,0 +1,71 @@
+.\" This document is in the public domain.
+.\" vim: fdm=marker
+.
+.\" FRONT MATTER {{{
+.Dd Aug 26, 2014
+.Os
+.Dt GIT-MAILZ 1
+.
+.Sh NAME
+.Nm git-mailz
+.Nd Sendmail wrapper for git without ADHD
+.\" FRONT MATTER }}}
+.
+.\" SYNOPSIS {{{
+.Sh SYNOPSIS
+.Nm
+.Op Fl f Ar ENVELOPE-SENDER
+.Ar FILE|DIRECTORY Ns \&...
+.\" SYNOPSIS }}}
+.
+.\" DESCRIPTION {{{
+.Sh DESCRIPTION
+Feeds patches given on the command line to
+.Xr sendmail 1 .
+Arguments can name individual patch files or directories,
+and are expected to be complete email messages.
+Recipients and sender are picked up from headers.
+.\" DESCRIPTION }}}
+.\" ENVIRONMENT {{{
+.Sh ENVIRONMENT
+.Nm
+itself does not use any environment variables.
+It is, however, implemented in terms of third-party commands
+which
+.Em do
+use them.
+This means
+.Nm
+may be influenced by environment variables used by
+.Xr git 1  ,
+.Xr zsh 1 ,
+possibly others.
+.\" ENVIRONMENT }}}
+.\" EXAMPLES {{{
+.\"Sh EXAMPLES
+.\" EXAMPLES }}}
+.\" DIAGNOSTICS {{{
+.Sh DIAGNOSTICS
+.Ex -std
+.\" DIAGNOSTICS }}}
+.\" SEE ALSO {{{
+.Sh SEE ALSO
+.Bl
+.It
+.Xr git-format-patch 1 ,
+.Xr git-send-email 1 .
+.El
+.\" SEE ALSO }}}
+.\" .Sh STANDARDS
+.\" .Sh HISTORY
+.\" AUTHORS {{{
+.Sh AUTHORS
+.An Roman Neuhauser Aq Mt rneuhauser@sigpipe.cz
+.Lk https://github.com/roman-neuhauser/git-mailz/
+.\" AUTHORS }}}
+.\" BUGS {{{
+.Sh BUGS
+No doubt plentiful.
+Please report them at
+.Lk https://github.com/roman-neuhauser/git-mailz/issues
+.\" BUGS }}}

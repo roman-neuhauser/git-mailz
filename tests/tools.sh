@@ -1,0 +1,9 @@
+export GIT_PAGER=cat
+export GIT_EDITOR=false
+export GIT_SSH=false
+export GIT_ASKPASS=false
+export GIT_CONFIG_NOSYSTEM=1
+export HOME="$PWD"
+export XDG_CONFIG_HOME="$PWD"
+export PATH="${TESTDIR%/*}:$TESTDIR:$PATH"
+export GIT_MAILZ_SENDMAIL=dump-inputs

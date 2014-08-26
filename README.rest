@@ -1,0 +1,39 @@
+.. vim: ft=rst sts=2 sw=2 tw=77
+.. default-role:: literal
+
+=============================================================================
+                                  git-mailz
+=============================================================================
+-----------------------------------------------------------------------------
+                     git-send-email(1) without the ADHD
+-----------------------------------------------------------------------------
+
+:Author: Roman Neuhauser
+:Contact: neuhauser@sigpipe.cz
+:Copyright: This document is in the public domain.
+
+.. this file is marked up using reStructuredText
+   lines beginning with ".." are reST directives
+   "foo_" or "`foo bar`_" is a link, defined at ".. _foo" or ".. _foo bar"
+   "::" introduces a literal block (usually some form of code)
+   "`foo`" is some kind of identifier
+   suspicious backslashes in the text ("`std::string`\s") are required for
+   reST to recognize the preceding character as syntax
+
+Introduction
+============
+
+`git-mailz(1)`_ feeds patches given on the command line to `sendmail(1)`.
+Arguments can name individual patch files or directories, and are expected
+to be complete email messages.  Recipients and sender are picked up from
+headers.
+
+.. _`git-mailz(1)`: https://github.com/roman-neuhauser/git-mailz
+
+Synopsis
+========
+
+::
+
+  git mailz [-f ENVELOPE-SENDER] FILE|DIRECTORY...
+
