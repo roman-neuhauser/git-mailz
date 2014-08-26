@@ -1,16 +1,8 @@
 .. vim: ft=rst sts=2 sw=2 tw=77
-.. default-role:: literal
 
-=============================================================================
-                                  git-mailz
-=============================================================================
------------------------------------------------------------------------------
-                     git-send-email(1) without the ADHD
------------------------------------------------------------------------------
-
-:Author: Roman Neuhauser
-:Contact: neuhauser@sigpipe.cz
-:Copyright: This document is in the public domain.
+.. :Author: Roman Neuhauser
+.. :Contact: neuhauser@sigpipe.cz
+.. :Copyright: This document is in the public domain.
 
 .. this file is marked up using reStructuredText
    lines beginning with ".." are reST directives
@@ -20,20 +12,39 @@
    suspicious backslashes in the text ("`std::string`\s") are required for
    reST to recognize the preceding character as syntax
 
-Introduction
-============
+.. default-role:: strong
+.. parsed-literal::
 
-`git-mailz(1)`_ feeds patches given on the command line to `sendmail(1)`.
-Arguments can name individual patch files or directories, and are expected
-to be complete email messages.  Recipients and sender are picked up from
-headers.
+  `NAME`
+       `git-mailz` — Send a collection of patches as emails
 
-.. _`git-mailz(1)`: https://github.com/roman-neuhauser/git-mailz
 
-Synopsis
-========
+  `SYNOPSIS`
+       `git-mailz` [-f *ENVELOPE-SENDER*] [*FILE*|*DIRECTORY*]
 
-::
+  `DESCRIPTION`
+     Feeds patches given on the command line to sendmail(1).
+     Arguments can name individual patch files or directories,
+     and are expected to be complete email messages.
+     Recipients and sender are picked up from headers.
 
-  git mailz [-f ENVELOPE-SENDER] FILE|DIRECTORY...
+  `ENVIRONMENT`
+     git-mailz itself does not use any environment variables.
+     It is, however, implemented in terms of third-party commands
+     which do use them.  This means git-mailz may be influenced by
+     environment variables used by git(1), zsh(1), possibly others.
+
+  `DIAGNOSTICS`
+     The git-mailz utility exits 0 on success, and >0 if an error occurs.
+
+  `SEE ALSO`
+     git-format-patch(1), git-send-email(1).
+
+  `AUTHORS`
+     Roman Neuhauser <rneuhauser@sigpipe.cz>
+           https://github.com/roman-neuhauser/git-mailz/
+
+  `BUGS`
+     No doubt plentiful.  Please report them at
+           https://github.com/roman-neuhauser/git-mailz/issues
 
