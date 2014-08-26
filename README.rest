@@ -23,28 +23,28 @@
        `git-mailz` [-f *ENVELOPE-SENDER*] [*FILE*|*DIRECTORY*]
 
   `DESCRIPTION`
-     Feeds patches given on the command line to sendmail(1).
-     Arguments can name individual patch files or directories,
-     and are expected to be complete email messages.
-     Recipients and sender are picked up from headers.
+       Feeds patches given on the command line to sendmail(1).
+       Arguments can name individual patch files or directories,
+       and are expected to be complete email messages.
+       Recipients and sender are picked up from headers.
 
   `ENVIRONMENT`
-     git-mailz itself does not use any environment variables.
-     It is, however, implemented in terms of third-party commands
-     which do use them.  This means git-mailz may be influenced by
-     environment variables used by git(1), zsh(1), possibly others.
+       git-mailz itself does not use any environment variables.
+       It is, however, implemented in terms of third-party commands
+       which do use them.  This means git-mailz may be influenced by
+       environment variables used by git(1), zsh(1), possibly others.
 
   `DIAGNOSTICS`
-     The git-mailz utility exits 0 on success, and >0 if an error occurs.
+       The git-mailz utility exits 0 on success, and >0 if an error occurs.
 
   `SEE ALSO`
-     git-format-patch(1), git-send-email(1).
+       git-format-patch(1), git-send-email(1).
 
   `AUTHORS`
-     Roman Neuhauser <rneuhauser@sigpipe.cz>
+       Roman Neuhauser <rneuhauser@sigpipe.cz>
            https://github.com/roman-neuhauser/git-mailz/
 
   `BUGS`
-     No doubt plentiful.  Please report them at
+       No doubt plentiful.  Please report them at
            https://github.com/roman-neuhauser/git-mailz/issues
 
