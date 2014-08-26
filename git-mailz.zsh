@@ -72,5 +72,5 @@ done
 
 for patch in "${(@)patches}"; do
   $sendmail "${(@)sendmail_args}" <$patch \
-  || complain $? "fatal: failed ${(qq)sendmail} "${(@qq)sendmail_args}" < ${(qq)patch}"
+  || complain $? "fatal: failed ${(qq)sendmail} ${(@qq)sendmail_args} < ${(qq)patch}"
 done
