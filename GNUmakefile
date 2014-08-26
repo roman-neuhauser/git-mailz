@@ -49,7 +49,7 @@ install: $(installed)
 	$(INSTALL_DATA) $(name).1.gz $(DESTDIR)$(MAN1DIR)/$(name).1.gz
 
 %.gz: %
-	$(GZIPCMD) -fkn $< $@
+	$(GZIPCMD) -cn $< | tee $@ >/dev/null
 
 %.html: %.rest
 	$(RST2HTML) --strict $< $@
