@@ -11,6 +11,7 @@ Source:         %{name}-%{version}.tar.gz
 BuildRequires:  filesystem
 BuildArch:      noarch
 BuildRoot:      %_tmppath/%name-%version-build
+Requires:       %_sbindir/sendmail
 Requires:       zsh
 BuildRequires:  zsh
 
