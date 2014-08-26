@@ -38,7 +38,7 @@
        The git-mailz utility exits 0 on success, and >0 if an error occurs.
 
   `SEE ALSO`
-       git-format-patch(1), git-send-email(1).
+       git-format-patch(1), git-send-email(1), sendmail(1), sendmail(8).
 
   `AUTHORS`
        Roman Neuhauser <rneuhauser@sigpipe.cz>
