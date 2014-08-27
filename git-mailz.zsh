@@ -1,27 +1,11 @@
 #!/usr/bin/env zsh
 # vim: ts=2 sts=2 sw=2 et fdm=marker cms=\ #\ %s
 
-function o
+function o # {{{
 {
   print >&2 "$@"
   "$@"
-}
-
-set -o no_unset
-set -o err_return
-
-declare -r sendmail=${GIT_MAILZ_SENDMAIL:-sendmail}
-
-set -A sendmail_args -i -t
-
-while [[ $# -gt 0 && $1 == -* ]]; do
-  case $1 in
-  -f) sendmail_args+=($1 $2); shift ;;
-  -t) ;; # default
-  --) shift; break ;;
-  esac
-  shift
-done
+} # }}}
 
 function complain # {{{
 {
@@ -48,6 +32,22 @@ function check-patch # {{{
   (( subject )) || complain 1 "fatal: no subject in $patch"
   (( content )) || complain 1 "fatal: empty body in $patch"
 } # }}}
+
+set -o no_unset
+set -o err_return
+
+declare -r sendmail=${GIT_MAILZ_SENDMAIL:-sendmail}
+
+set -A sendmail_args -i -t
+
+while [[ $# -gt 0 && $1 == -* ]]; do
+  case $1 in
+  -f) sendmail_args+=($1 $2); shift ;;
+  -t) ;; # default
+  --) shift; break ;;
+  esac
+  shift
+done
 
 if (( $# == 0 )); then
   complain 1 "usage: ${0##*/} [-f ENVELOPE-SENDER] <FILE|DIRECTORY>..."
