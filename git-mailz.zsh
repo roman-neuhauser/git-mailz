@@ -49,14 +49,18 @@ function check-patch # {{{
   (( content )) || complain 1 "fatal: empty body in $patch"
 } # }}}
 
-declare -a patches
+declare -a patches argexpn
 
 for arg in "$@"; do
   if [[ -d $arg ]]; then
-    patches+=($arg/**/*(N.))
+    argexpn=($arg/**/*(N.))
   else
-    patches+=($arg)
+    argexpn=($arg)
   fi
+  if (( $#argexpn == 0 )); then
+    complain 1 "fatal: no patches found in $arg"
+  fi
+  patches+=$argexpn
 done
 
 if (( $#patches == 0 )); then

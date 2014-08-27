@@ -16,18 +16,19 @@ test with no arguments
   fatal: no patches to send
   [1]
 
-test with a nonexistent argument
-********************************
-
-  $ git mailz fubar
-  fatal: cannot read fubar
-  [1]
-
-test with an empty directory argument
-*************************************
+test with an empty directory
+****************************
 
   $ mkdir snafu
   $ git mailz snafu
-  fatal: no patches to send
+  fatal: no patches found in snafu
+  [1]
+
+test with *two* empty directories
+*********************************
+
+  $ mkdir -p snafu fubar
+  $ git mailz snafu fubar
+  fatal: no patches found in snafu
   [1]
 

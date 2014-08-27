@@ -1,5 +1,5 @@
-rejects an empty message
-========================
+rejects an empty or nonexistent argument
+========================================
 
 setup
 *****
@@ -8,6 +8,13 @@ setup
 
   $ . $TESTDIR/tools.sh
 
+
+test a nonexistent argument
+***************************
+
+  $ git mailz fubar
+  fatal: cannot read fubar
+  [1]
 
 test file
 *********
