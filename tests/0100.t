@@ -12,12 +12,16 @@ setup
 test a nonexistent argument
 ***************************
 
+::
+
   $ git mailz fubar
   fatal: cannot read fubar
   [1]
 
 test file
 *********
+
+::
 
   $ touch empty-file
   $ git mailz empty-file
@@ -27,6 +31,8 @@ test file
 
 test dir
 ********
+
+::
 
   $ mkdir dir
   $ touch dir/empty-file

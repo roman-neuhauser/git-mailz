@@ -12,12 +12,16 @@ setup
 test with no arguments
 **********************
 
+::
+
   $ git mailz
   usage: git-mailz [-f ENVELOPE-SENDER] <FILE|DIRECTORY>...
   [1]
 
 test with an empty directory
 ****************************
+
+::
 
   $ mkdir snafu
   $ git mailz snafu
@@ -26,6 +30,8 @@ test with an empty directory
 
 test with *two* empty directories
 *********************************
+
+::
 
   $ mkdir -p snafu fubar
   $ git mailz snafu fubar

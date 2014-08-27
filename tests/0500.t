@@ -12,6 +12,8 @@ setup
 test file
 *********
 
+::
+
   $ git mailz $TESTDIR/a741380.patch
   git-sendmail arguments:
     -i
@@ -46,6 +48,8 @@ test file
 
 test dir
 ********
+
+::
 
   $ mkdir dir
   $ cp $TESTDIR/a741380.patch dir/

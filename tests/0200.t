@@ -12,6 +12,8 @@ setup
 test file
 *********
 
+::
+
   $ cat > random.patch <<'EOF'
   > From: fubar@example.org
   > EOF
@@ -22,6 +24,8 @@ test file
 
 test dir
 ********
+
+::
 
   $ mkdir dir
   $ cat > dir/random.patch <<'EOF'
