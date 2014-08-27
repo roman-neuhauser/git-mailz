@@ -13,7 +13,7 @@ test with no arguments
 **********************
 
   $ git mailz
-  fatal: no patches to send
+  usage: git-mailz [-f ENVELOPE-SENDER] <FILE|DIRECTORY>...
   [1]
 
 test with an empty directory

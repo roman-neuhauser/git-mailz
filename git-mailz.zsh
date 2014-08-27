@@ -49,6 +49,10 @@ function check-patch # {{{
   (( content )) || complain 1 "fatal: empty body in $patch"
 } # }}}
 
+if (( $# == 0 )); then
+  complain 1 "usage: ${0##*/} [-f ENVELOPE-SENDER] <FILE|DIRECTORY>..."
+fi
+
 declare -a patches argexpn
 
 for arg in "$@"; do
@@ -62,10 +66,6 @@ for arg in "$@"; do
   fi
   patches+=$argexpn
 done
-
-if (( $#patches == 0 )); then
-  complain 1 "fatal: no patches to send"
-fi
 
 for patch in "${(@)patches}"; do
   if [[ ! -e $patch ]]; then
