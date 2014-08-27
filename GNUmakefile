@@ -66,6 +66,13 @@ tarball: .git
 $(name): $(name).zsh
 	$(INSTALL_SCRIPT) $< $@
 
+PKGBUILD: PKGBUILD.in
+	version=$(version); pkgver=$${version#v}; \
+	sed -e "/^pkgver=/s/__VERSION__/$$pkgver/" \
+	    -e "/^pkgver=/s/-/./g" \
+	    -e "/^_upstreamver=/s/__VERSION__/$$version/" \
+	    $< | tee $@ >/dev/null
+
 define first_in_path
   $(or \
     $(firstword $(wildcard \
