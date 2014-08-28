@@ -22,6 +22,8 @@ artifacts =       $(installed) README.html
 
 sources =         git-mailz.zsh
 
+version =         $(shell git describe --always --first-parent --long)
+
 .DEFAULT_GOAL :=  most
 
 .PHONY: all
@@ -48,6 +50,13 @@ install: $(installed)
 	$(INSTALL_SCRIPT) $(name) $(DESTDIR)$(BINDIR)/$(name)
 	$(INSTALL_DATA) $(name).1.gz $(DESTDIR)$(MAN1DIR)/$(name).1.gz
 
+.PHONY: tarball
+tarball: .git
+	git archive \
+	  --format tar.gz \
+	  --prefix $(name)-$(version)/ \
+	  --output $(name)-$(version).tar.gz \
+	  HEAD
 %.gz: %
 	$(GZIPCMD) -cn $< | tee $@ >/dev/null
 
