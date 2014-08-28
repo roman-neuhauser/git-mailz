@@ -1,7 +1,7 @@
 .. vim: ft=rst sts=2 sw=2 tw=77
 
 .. :Author: Roman Neuhauser
-.. :Contact: neuhauser@sigpipe.cz
+.. :Contact: neuhauser+git-mailz@sigpipe.cz
 .. :Copyright: This document is in the public domain.
 
 .. this file is marked up using reStructuredText
@@ -42,7 +42,7 @@
        *sendmail(8)*.
 
   `AUTHORS`
-       Roman Neuhauser <rneuhauser@sigpipe.cz>
+       Roman Neuhauser <neuhauser+git-mailz@sigpipe.cz>
            https://github.com/roman-neuhauser/git-mailz/
 
   `BUGS`

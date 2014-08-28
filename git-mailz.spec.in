@@ -1,4 +1,5 @@
 # norootforbuild
+# Maintainer: Roman Neuhauser <neuhauser+git-mailz@sigpipe.cz>
 
 %define _upstreamver __VERSION__
 
