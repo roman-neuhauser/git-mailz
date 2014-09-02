@@ -66,6 +66,13 @@ tarball: .git
 $(name): $(name).zsh
 	$(INSTALL_SCRIPT) $< $@
 
+$(name).spec: $(name).spec.in
+	version=$(version); pkgver=$${version#v}; \
+	sed -e "/^Version:/s/__VERSION__/$$pkgver/" \
+	    -e "/^Version:/s/-/./g" \
+	    -e "/^%define _upstreamver /s/__VERSION__/$$version/" \
+	    $< | tee $@ >/dev/null
+
 PKGBUILD: PKGBUILD.in
 	version=$(version); pkgver=$${version#v}; \
 	sed -e "/^pkgver=/s/__VERSION__/$$pkgver/" \

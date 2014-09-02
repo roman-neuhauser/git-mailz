@@ -1,5 +1,7 @@
 # norootforbuild
 
+%define _upstreamver __VERSION__
+
 Name:           git-mailz
 Version:        __VERSION__
 Release:        0
@@ -7,7 +9,7 @@ License:        MIT
 Summary:        Sendmail(1) wrapper for git(1) without ADHD
 Url:            https://github.com/roman-neuhauser/%{name}
 Group:          Productivity/Networking/Email/Utilities
-Source:         %{name}-%{version}.tar.gz
+Source:         %{name}-%{_upstreamver}.tar.gz
 BuildRequires:  filesystem
 BuildArch:      noarch
 BuildRoot:      %_tmppath/%name-%version-build
@@ -20,7 +22,7 @@ BuildRequires:  zsh
 git-mailz(1) feeds patches given on the command line to sendmail(1).
 
 %prep
-%setup -q
+%setup -qn %{name}-%{_upstreamver}
 
 %build
 %gitmailz_make most
