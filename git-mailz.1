@@ -28,12 +28,18 @@ Recipients and sender are picked up from headers.
 .\" DESCRIPTION }}}
 .\" ENVIRONMENT {{{
 .Sh ENVIRONMENT
+.Bl -tag -width xxx
+.It Ev GIT_MAILZ_SENDMAIL
+Executable used in place of
+.Xr sendmail 1 .
+Defaults to
+.Li sendmail .
+.El
+.Pp
 .Nm
-itself does not use any environment variables.
-It is, however, implemented in terms of third-party commands
+is implemented in terms of third-party commands
 which
-.Em do
-use them.
+use environment variables.
 This means
 .Nm
 may be influenced by environment variables used by
