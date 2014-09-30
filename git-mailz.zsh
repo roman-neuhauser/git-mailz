@@ -18,8 +18,8 @@ function check-patch # {{{
   local line patch=$1
   local -i content=0 recipients=0 sender=0 stage=0 subject=0
   while read line; do
-    if [[ -z $line ]]; then stage=1; continue; fi
     if (( stage == 0 )); then
+      if [[ -z $line ]]; then stage=1; continue; fi
       if [[ $line =~ '^(From): .+' ]]; then sender=1; fi
       if [[ $line =~ '^(To|Cc): .+' ]]; then recipients=1; fi
       if [[ $line =~ '^(Subject): .+' ]]; then subject=1; fi
