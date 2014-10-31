@@ -23,7 +23,7 @@ artifacts       = $(installed) README.html
 
 sources         = git-mailz.zsh
 
-version         = $(shell git describe --always --first-parent --long)
+revname         = $(shell git describe --always --first-parent --long)
 
 .DEFAULT_GOAL  := most
 
@@ -53,10 +53,11 @@ install: $(installed)
 
 .PHONY: tarball
 tarball: .git
+	pkgver=$(fix_version); \
 	git archive \
 	  --format tar.gz \
-	  --prefix $(name)-$(version)/ \
-	  --output $(name)-$(version).tar.gz \
+	  --prefix $(name)-$${pkgver}/ \
+	  --output $(name)-$${pkgver}.tar.gz \
 	  HEAD
 %.gz: %
 	$(GZIPCMD) -cn $< | tee $@ >/dev/null
@@ -68,18 +69,18 @@ $(name): $(name).zsh
 	$(INSTALL_SCRIPT) $< $@
 
 $(name).spec: $(name).spec.in
-	version=$(version); pkgver=$${version#v}; \
-	sed -e "/^Version:/s/__VERSION__/$$pkgver/" \
-	    -e "/^Version:/s/-/./g" \
-	    -e "/^%define _upstreamver /s/__VERSION__/$$version/" \
-	    $< | tee $@ >/dev/null
+	$(call subst_version,^Version:)
 
 PKGBUILD: PKGBUILD.in
-	version=$(version); pkgver=$${version#v}; \
-	sed -e "/^pkgver=/s/__VERSION__/$$pkgver/" \
-	    -e "/^pkgver=/s/-/./g" \
-	    -e "/^_upstreamver=/s/__VERSION__/$$version/" \
+	$(call subst_version,^pkgver=)
+
+define subst_version
+	pkgver=$(fix_version); \
+	sed -e "/$(1)/s/__VERSION__/$$pkgver/" \
 	    $< | tee $@ >/dev/null
+endef
+
+fix_version = $${$${$${:-$(revname)}\#v}:gs/-/+}
 
 define first_in_path
   $(or \
