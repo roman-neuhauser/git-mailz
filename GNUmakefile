@@ -16,12 +16,13 @@ INSTALL_SCRIPT ?= install -m 755
 RST2HTML       ?= $(call first_in_path,rst2html.py rst2html)
 
 SHELL           = $(call first_in_path,zsh)
+
 name            = git-mailz
 
 installed       = $(name).1.gz $(name)
 artifacts       = $(installed) README.html
 
-sources         = git-mailz.zsh
+sources         = $(name).zsh
 
 revname         = $(shell git describe --always --first-parent --long)
 
