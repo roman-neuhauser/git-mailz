@@ -20,7 +20,7 @@ SHELL           = $(call first_in_path,zsh)
 name            = git-mailz
 
 installed       = $(name).1.gz $(name)
-artifacts       = $(installed) README.html
+artifacts       = $(installed) README.html PKGBUILD $(name).spec
 
 sources         = $(name).zsh
 
