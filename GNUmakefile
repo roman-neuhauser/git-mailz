@@ -24,7 +24,7 @@ artifacts       = $(installed) README.html
 
 sources         = $(name).zsh
 
-revname         = $(shell git describe --always --first-parent --long)
+revname         = $(shell git describe --always --first-parent)
 
 .DEFAULT_GOAL  := most
 
