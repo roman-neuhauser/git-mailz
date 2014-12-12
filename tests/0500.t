@@ -9,8 +9,8 @@ setup
   $ . $TESTDIR/tools.sh
 
 
-test file
-*********
+test a file argument
+********************
 
 ::
 
@@ -46,14 +46,14 @@ test file
   |
 
 
-test dir
-********
+test a dir argument
+*******************
 
 ::
 
   $ mkdir dir
   $ cp $TESTDIR/a741380.patch dir/
-  $ git mailz dir/a741380.patch
+  $ git mailz dir
   git-sendmail arguments:
     -i
     -t
