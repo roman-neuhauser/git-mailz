@@ -15,6 +15,10 @@ build() {
   _make
 }
 
+check() {
+  _make check
+}
+
 package() {
   _make install DESTDIR="$pkgdir/"
 }
