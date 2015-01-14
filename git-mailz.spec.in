@@ -7,7 +7,7 @@ Name:           git-mailz
 Version:        __VERSION__
 Release:        0
 License:        MIT
-Summary:        Sendmail(1) wrapper for git(1) without ADHD
+Summary:        Send a collection of patches as emails
 Url:            https://github.com/roman-neuhauser/%{name}
 Group:          Productivity/Networking/Email/Utilities
 Source:         %{name}-%{_upstreamver}.tar.gz
