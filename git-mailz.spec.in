@@ -16,8 +16,9 @@ BuildArch:      noarch
 BuildRoot:      %_tmppath/%name-%version-build
 Requires:       %_sbindir/sendmail
 Requires:       zsh
-BuildRequires:  zsh
+BuildRequires:  git
 BuildRequires:  python3-cram
+BuildRequires:  zsh
 
 %define gitmailz_make  make PREFIX=%{_prefix}
 %description
