@@ -16,8 +16,8 @@ BuildArch:      noarch
 BuildRoot:      %_tmppath/%name-%version-build
 Requires:       %_sbindir/sendmail
 Requires:       zsh
+BuildRequires:  cram
 BuildRequires:  git
-BuildRequires:  python3-cram
 BuildRequires:  zsh
 
 %define gitmailz_make  make PREFIX=%{_prefix}
@@ -31,7 +31,7 @@ git-mailz(1) feeds patches given on the command line to sendmail(1).
 %gitmailz_make most
 
 %check
-%gitmailz_make check CRAMCMD=cram3
+%gitmailz_make check
 
 %install
 %gitmailz_make install DESTDIR=%{buildroot}
