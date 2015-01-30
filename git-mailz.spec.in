@@ -1,8 +1,6 @@
 # norootforbuild
 # Maintainer: Roman Neuhauser <neuhauser+git-mailz@sigpipe.cz>
 
-%define _upstreamver __VERSION__
-
 Name:           git-mailz
 Version:        __VERSION__
 Release:        0
@@ -10,7 +8,7 @@ License:        MIT
 Summary:        Send a collection of patches as emails
 Url:            https://github.com/roman-neuhauser/%{name}
 Group:          Productivity/Networking/Email/Utilities
-Source:         %{name}-%{_upstreamver}.tar.gz
+Source:         %{name}-%{version}.tar.gz
 BuildRequires:  filesystem
 BuildArch:      noarch
 BuildRoot:      %_tmppath/%name-%version-build
@@ -25,7 +23,7 @@ BuildRequires:  zsh
 git-mailz(1) feeds patches given on the command line to sendmail(1).
 
 %prep
-%setup -qn %{name}-%{_upstreamver}
+%setup -q
 
 %build
 %gitmailz_make most

@@ -1,14 +1,13 @@
 # Maintainer: Roman Neuhauser <neuhauser+git-mailz@sigpipe.cz>
 pkgname=git-mailz
 pkgver=__VERSION__
-_upstreamver=__VERSION__
 pkgrel=1
 pkgdesc="Send a collection of patches as emails"
 arch=(any)
 url="https://github.com/roman-neuhauser/$pkgname"
 license=(MIT)
 depends=(git zsh)
-source=($pkgname-$_upstreamver.tar.gz)
+source=($pkgname-$pkgver.tar.gz)
 sha1sums=(SKIP)
 
 build() {
@@ -24,7 +23,7 @@ package() {
 }
 
 _make() {
-  cd "$srcdir/$pkgname-$_upstreamver"
+  cd "$srcdir/$pkgname-$pkgver"
   make "$@"
 }
 
