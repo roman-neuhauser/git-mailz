@@ -6,7 +6,7 @@ setup
 
 ::
 
-  $ . $TESTDIR/tools.sh
+  $ . $TESTDIR/setup
 
 
 test a file argument
