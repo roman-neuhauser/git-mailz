@@ -6,8 +6,6 @@ MANDIR         ?= $(PREFIX)/share/man
 MAN1DIR        ?= $(MANDIR)/man1
 
 CRAMCMD         = cram
-CRAM            = --shell $(SHELL)
-export CRAM
 
 GZIPCMD        ?= gzip
 INSTALL_DATA   ?= install -m 644
@@ -16,6 +14,7 @@ INSTALL_SCRIPT ?= install -m 755
 RST2HTML       ?= $(call first_in_path,rst2html.py rst2html)
 
 SHELL           = $(call first_in_path,zsh)
+PATH            = /usr/bin:/bin:/usr/sbin:/sbin
 
 name            = git-mailz
 
@@ -42,7 +41,7 @@ clean:
 
 .PHONY: check
 check: $(.DEFAULT_GOAL)
-	$(CRAMCMD) tests
+	env -i CRAM="$(CRAM)" PATH="$(PATH):$$PWD/tests:$$PWD" SHELL="$(SHELL)" $(CRAMCMD) --shell=tsh tests
 
 .PHONY: html
 html: README.html
