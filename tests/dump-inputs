@@ -1,9 +1,14 @@
 #!/usr/bin/env zsh
 
+declare -a sedex; sedex=(-e 's/^/|/')
+
+if (( $+DUMP_INPUTS_FULL == 0 )); then
+  sedex+=(-e '/^|$/q;')
+fi
+
 print git-sendmail arguments:
 for arg in "$@"; do
   print -f '  %s\n' -- $arg
 done
 print git-sendmail stdin:
-sed 's/^/|/; /^|$/q;'
-
+sed $sedex
