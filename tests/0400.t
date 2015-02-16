@@ -48,7 +48,7 @@ test dir
   > Cc: snafu@example.org
   > Subject: rofl
   > EOF
-  $ git mailz dir/random.patch
+  $ git mailz dir
   fatal: empty body in dir/random.patch
   [1]
 
@@ -61,7 +61,7 @@ test dir
   > 
   > 
   > EOF
-  $ git mailz dir/random.patch
+  $ git mailz dir
   fatal: empty body in dir/random.patch
   [1]
 

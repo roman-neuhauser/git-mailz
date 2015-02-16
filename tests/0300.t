@@ -33,7 +33,7 @@ test dir
   > From: fubar@example.org
   > Cc: snafu@example.org
   > EOF
-  $ git mailz dir/random.patch
+  $ git mailz dir
   fatal: no subject in dir/random.patch
   [1]
 

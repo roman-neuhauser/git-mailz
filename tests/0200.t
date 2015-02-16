@@ -31,7 +31,7 @@ test dir
   $ cat > dir/random.patch <<'EOF'
   > From: fubar@example.org
   > EOF
-  $ git mailz dir/random.patch
+  $ git mailz dir
   fatal: no recipients in dir/random.patch
   [1]
 
