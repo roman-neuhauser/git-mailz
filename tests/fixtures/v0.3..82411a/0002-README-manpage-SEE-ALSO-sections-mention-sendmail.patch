@@ -1,0 +1,42 @@
+From 62b1157a47a18b4a689d1574717ff9d2f1422f30 Mon Sep 17 00:00:00 2001
+From: Roman Neuhauser <rneuhauser@suse.cz>
+Date: Tue, 26 Aug 2014 18:21:04 +0200
+Subject: [PATCH 2/3] README, manpage: SEE ALSO sections mention sendmail
+To: git-mailz-tests@example.org
+
+---
+ README.rest | 2 +-
+ git-mailz.1 | 4 +++-
+ 2 files changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/README.rest b/README.rest
+index 1c8b36d..b3635bc 100644
+--- a/README.rest
++++ b/README.rest
+@@ -38,7 +38,7 @@
+        The git-mailz utility exits 0 on success, and >0 if an error occurs.
+ 
+   `SEE ALSO`
+-       git-format-patch(1), git-send-email(1).
++       git-format-patch(1), git-send-email(1), sendmail(1), sendmail(8).
+ 
+   `AUTHORS`
+        Roman Neuhauser <rneuhauser@sigpipe.cz>
+diff --git a/git-mailz.1 b/git-mailz.1
+index 5c0ae4d..9d7d1ec 100644
+--- a/git-mailz.1
++++ b/git-mailz.1
+@@ -53,7 +53,9 @@ possibly others.
+ .Bl
+ .It
+ .Xr git-format-patch 1 ,
+-.Xr git-send-email 1 .
++.Xr git-send-email 1 ,
++.Xr sendmail 1 ,
++.Xr sendmail 8 .
+ .El
+ .\" SEE ALSO }}}
+ .\" .Sh STANDARDS
+-- 
+2.3.0
+

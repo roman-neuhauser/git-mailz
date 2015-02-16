@@ -1,0 +1,51 @@
+From 82411a9ecb75b79e6e610a881c130f99b30e0c49 Mon Sep 17 00:00:00 2001
+From: Roman Neuhauser <rneuhauser@suse.cz>
+Date: Tue, 26 Aug 2014 20:05:10 +0200
+Subject: [PATCH 3/3] README: markup fixes
+To: git-mailz-tests@example.org
+
+---
+ README.rest | 15 ++++++++-------
+ 1 file changed, 8 insertions(+), 7 deletions(-)
+
+diff --git a/README.rest b/README.rest
+index b3635bc..1e01104 100644
+--- a/README.rest
++++ b/README.rest
+@@ -20,25 +20,26 @@
+ 
+ 
+   `SYNOPSIS`
+-       `git-mailz` [-f *ENVELOPE-SENDER*] [*FILE*|*DIRECTORY*]
++       `git-mailz` [-f *ENVELOPE-SENDER*] [*FILE* | *DIRECTORY*]...
+ 
+   `DESCRIPTION`
+-       Feeds patches given on the command line to sendmail(1).
++       Feeds patches given on the command line to *sendmail(1)*.
+        Arguments can name individual patch files or directories,
+        and are expected to be complete email messages.
+        Recipients and sender are picked up from headers.
+ 
+   `ENVIRONMENT`
+-       git-mailz itself does not use any environment variables.
++       `git-mailz` itself does not use any environment variables.
+        It is, however, implemented in terms of third-party commands
+-       which do use them.  This means git-mailz may be influenced by
+-       environment variables used by git(1), zsh(1), possibly others.
++       which do use them.  This means `git-mailz` may be influenced by
++       environment variables used by *git(1)*, *zsh(1)*, possibly others.
+ 
+   `DIAGNOSTICS`
+-       The git-mailz utility exits 0 on success, and >0 if an error occurs.
++       The `git-mailz` utility exits 0 on success, and >0 if an error occurs.
+ 
+   `SEE ALSO`
+-       git-format-patch(1), git-send-email(1), sendmail(1), sendmail(8).
++       *git-format-patch(1)*, *git-send-email(1)*, *sendmail(1)*,
++       *sendmail(8)*.
+ 
+   `AUTHORS`
+        Roman Neuhauser <rneuhauser@sigpipe.cz>
+-- 
+2.3.0
+

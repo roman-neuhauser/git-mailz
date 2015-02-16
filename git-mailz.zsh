@@ -64,7 +64,7 @@ for arg in "$@"; do
   if (( $#argexpn == 0 )); then
     complain 1 "fatal: no patches found in $arg"
   fi
-  patches+=$argexpn
+  patches+=($argexpn)
 done
 
 for patch in "${(@)patches}"; do
