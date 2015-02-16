@@ -86,11 +86,11 @@ endef
 fix_version = $${$${$${:-$(revname)}\#v}:gs/-/+}
 
 define first_in_path
-  $(or \
-    $(firstword $(wildcard \
-      $(foreach p,$(1),$(addsuffix /$(p),$(subst :, ,$(PATH)))) \
-    )) \
-  , $(error Need one of: $(1)) \
-  )
+$(or \
+  $(firstword $(wildcard \
+    $(foreach p,$(1),$(addsuffix /$(p),$(subst :, ,$(PATH)))) \
+  )) \
+, $(error Need one of: $(1)) \
+)
 endef
 
