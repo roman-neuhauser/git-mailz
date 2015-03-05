@@ -14,7 +14,7 @@ test a file argument
 
 ::
 
-  $ DUMP_INPUTS_FULL=1 git mailz $TESTDIR/a741380.patch
+  $ DUMP_INPUTS_FULL=1 git mailz $TESTDIR/fixtures/a741380.patch
   git-sendmail arguments:
     -i
     -t
