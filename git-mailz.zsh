@@ -36,7 +36,7 @@ function check-patch # {{{
 set -o no_unset
 set -o err_return
 
-declare -r sendmail=${GIT_MAILZ_SENDMAIL:-sendmail}
+declare -r sendmail=${GIT_MAILZ_SENDMAIL:-${$(git config --get mailz.sendmail):-sendmail}}
 
 set -A sendmail_args -i -t
 

@@ -28,9 +28,16 @@
        and are expected to be complete email messages.
        Recipients and sender are picked up from headers.
 
+    `Configuration`
+       [mailz]
+         sendmail = EXE
+
+       `mailz.sendmail`
+         Feed patches to `EXE`.  Defaults to `sendmail`.
+
   `ENVIRONMENT`
        `GIT_MAILZ_SENDMAIL`
-         Executable used in place of *sendmail(1)*.  Defaults to `sendmail`.
+         Override the program patches are fed to.
 
        `git-mailz` is implemented in terms of third-party commands which
        use environment variables.  This means `git-mailz` may be influenced

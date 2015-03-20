@@ -25,15 +25,24 @@ Feeds patches given on the command line to
 Arguments can name individual patch files or directories,
 and are expected to be complete email messages.
 Recipients and sender are picked up from headers.
+.Ss Configuration
+.Bd -literal
+[mailz]
+  sendmail = EXE
+.Ed
+.Bl -tag -width "xxx"
+. It mailz.sendmail
+Feed patches to
+. Va EXE .
+Defaults to
+. Pa sendmail .
+.El
 .\" DESCRIPTION }}}
 .\" ENVIRONMENT {{{
 .Sh ENVIRONMENT
 .Bl -tag -width xxx
 .It Ev GIT_MAILZ_SENDMAIL
-Executable used in place of
-.Xr sendmail 1 .
-Defaults to
-.Li sendmail .
+Override the program patches are fed to.
 .El
 .Pp
 .Nm
