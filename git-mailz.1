@@ -25,6 +25,15 @@ Feeds patches given on the command line to
 Arguments can name individual patch files or directories,
 and are expected to be complete email messages.
 Recipients and sender are picked up from headers.
+.Ss Options
+.Bl -tag -width "xxx"
+. It Fl f Ar ENVELOPE-SENDER
+Invoke
+. Va mailz.sendmail
+with
+. Fl f Ar ENVELOPE-SENDER .
+.El
+.
 .Ss Configuration
 .Bd -literal
 [mailz]

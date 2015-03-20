@@ -28,6 +28,10 @@
        and are expected to be complete email messages.
        Recipients and sender are picked up from headers.
 
+    `Options`
+       `-f` *ENVELOPE-SENDER*
+         Invoke `mailz.sendmail` with `-f` *ENVELOPE-SENDER*.
+
     `Configuration`
        [mailz]
          sendmail = EXE
