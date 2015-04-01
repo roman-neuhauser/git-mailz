@@ -3,8 +3,10 @@
 
 function complain # {{{
 {
-  print ${@[2,-1]} >&2
-  exit $1
+  local -r ex=$1 fmt=$2; shift 2
+  print -u 2 -f "fatal: "
+  print -u 2 -f "$fmt\n" "$@"
+  [[ $ex != - ]] && exit $ex
 } # }}}
 
 function check-patch # {{{
@@ -21,14 +23,16 @@ function check-patch # {{{
       if [[ $line =~ '.*[^[:space:]].*' ]]; then content=1; break; fi
     fi
   done <$patch
-  (( sender )) || complain 1 "fatal: no sender in $patch"
-  (( recipients )) || complain 1 "fatal: no recipients in $patch"
-  (( subject )) || complain 1 "fatal: no subject in $patch"
-  (( content )) || complain 1 "fatal: empty body in $patch"
+  (( sender )) || complain 1 "no sender in $patch"
+  (( recipients )) || complain 1 "no recipients in $patch"
+  (( subject )) || complain 1 "no subject in $patch"
+  (( content )) || complain 1 "empty body in $patch"
 } # }}}
 
 set -o no_unset
 set -o err_return
+
+declare -r _SELF=${0##*/}
 
 declare -r sendmail=${GIT_MAILZ_SENDMAIL:-${$(git config --get mailz.sendmail):-sendmail}}
 
@@ -44,7 +48,8 @@ while [[ $# -gt 0 && $1 == -* ]]; do
 done
 
 if (( $# == 0 )); then
-  complain 1 "usage: ${0##*/} [-f ENVELOPE-SENDER] <FILE|DIRECTORY>..."
+  print -u 2 "usage: $_SELF [-f ENVELOPE-SENDER] <FILE|DIRECTORY>..."
+  exit 1
 fi
 
 declare -a patches argexpn
@@ -56,19 +61,19 @@ for arg in "$@"; do
     argexpn=($arg)
   fi
   if (( $#argexpn == 0 )); then
-    complain 1 "fatal: no patches found in $arg"
+    complain 1 "no patches found in $arg"
   fi
   patches+=($argexpn)
 done
 
 for patch in "${(@)patches}"; do
   if [[ ! -e $patch ]]; then
-    complain 1 "fatal: cannot read $patch"
+    complain 1 "cannot read $patch"
   fi
   check-patch $patch
 done
 
 for patch in "${(@)patches}"; do
   $sendmail "${(@)sendmail_args}" <$patch \
-  || complain $? "fatal: failed ${(qq)sendmail} ${(@qq)sendmail_args} < ${(qq)patch}"
+  || complain $? "failed ${(qq)sendmail} ${(@qq)sendmail_args} < ${(qq)patch}"
 done
