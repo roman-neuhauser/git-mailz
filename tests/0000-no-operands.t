@@ -25,7 +25,7 @@ test with an empty directory
 
   $ mkdir snafu
   $ git mailz snafu
-  fatal: no patches found in snafu
+  git-mailz: error: no patches found in snafu
   [1]
 
 test with *two* empty directories
@@ -35,6 +35,6 @@ test with *two* empty directories
 
   $ mkdir -p snafu fubar
   $ git mailz snafu fubar
-  fatal: no patches found in snafu
+  git-mailz: error: no patches found in snafu
   [1]
 

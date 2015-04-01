@@ -18,7 +18,7 @@ test file
   > From: fubar@example.org
   > EOF
   $ git mailz random.patch
-  fatal: no recipients in random.patch
+  git-mailz: error: no recipients in random.patch
   [1]
 
 
@@ -32,6 +32,6 @@ test dir
   > From: fubar@example.org
   > EOF
   $ git mailz dir
-  fatal: no recipients in dir/random.patch
+  git-mailz: error: no recipients in dir/random.patch
   [1]
 

@@ -15,7 +15,7 @@ test a nonexistent argument
 ::
 
   $ git mailz fubar
-  fatal: cannot read fubar
+  git-mailz: error: cannot read fubar
   [1]
 
 test file
@@ -25,7 +25,7 @@ test file
 
   $ touch empty-file
   $ git mailz empty-file
-  fatal: no sender in empty-file
+  git-mailz: error: no sender in empty-file
   [1]
 
 
@@ -37,6 +37,6 @@ test dir
   $ mkdir dir
   $ touch dir/empty-file
   $ git mailz dir
-  fatal: no sender in dir/empty-file
+  git-mailz: error: no sender in dir/empty-file
   [1]
 

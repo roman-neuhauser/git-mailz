@@ -19,7 +19,7 @@ test file
   > Cc: snafu@example.org
   > EOF
   $ git mailz random.patch
-  fatal: no subject in random.patch
+  git-mailz: error: no subject in random.patch
   [1]
 
 
@@ -34,6 +34,6 @@ test dir
   > Cc: snafu@example.org
   > EOF
   $ git mailz dir
-  fatal: no subject in dir/random.patch
+  git-mailz: error: no subject in dir/random.patch
   [1]
 

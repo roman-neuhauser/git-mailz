@@ -20,7 +20,7 @@ test file
   > Subject: rofl
   > EOF
   $ git mailz random.patch
-  fatal: empty body in random.patch
+  git-mailz: error: empty body in random.patch
   [1]
 
 
@@ -33,7 +33,7 @@ test file
   > 
   > EOF
   $ git mailz random.patch
-  fatal: empty body in random.patch
+  git-mailz: error: empty body in random.patch
   [1]
 
 
@@ -49,7 +49,7 @@ test dir
   > Subject: rofl
   > EOF
   $ git mailz dir
-  fatal: empty body in dir/random.patch
+  git-mailz: error: empty body in dir/random.patch
   [1]
 
 
@@ -62,6 +62,6 @@ test dir
   > 
   > EOF
   $ git mailz dir
-  fatal: empty body in dir/random.patch
+  git-mailz: error: empty body in dir/random.patch
   [1]
 
