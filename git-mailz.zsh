@@ -1,12 +1,6 @@
 #!/usr/bin/env zsh
 # vim: ts=2 sts=2 sw=2 et fdm=marker cms=\ #\ %s
 
-function o # {{{
-{
-  print >&2 "$@"
-  "$@"
-} # }}}
-
 function complain # {{{
 {
   print ${@[2,-1]} >&2
