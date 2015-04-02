@@ -40,3 +40,31 @@ test dir
   git-mailz: error: no sender in dir/empty-file
   [1]
 
+
+test with an empty directory
+****************************
+
+::
+
+  $ mkdir snafu
+  $ git mailz snafu
+  git-mailz: error: no patches found in snafu
+  [1]
+
+::
+
+  $ mkdir -p snafu
+  $ git mailz -f git-mailz-tests@example.org snafu
+  git-mailz: error: no patches found in snafu
+  [1]
+
+test with *two* empty directories
+*********************************
+
+::
+
+  $ mkdir -p snafu fubar
+  $ git mailz snafu fubar
+  git-mailz: error: no patches found in snafu
+  [1]
+

@@ -18,23 +18,12 @@ test with no arguments
   usage: git-mailz [-f ENVELOPE-SENDER] <FILE|DIRECTORY>...
   [1]
 
-test with an empty directory
-****************************
+test with -f, no operands
+*************************
 
 ::
 
-  $ mkdir snafu
-  $ git mailz snafu
-  git-mailz: error: no patches found in snafu
-  [1]
-
-test with *two* empty directories
-*********************************
-
-::
-
-  $ mkdir -p snafu fubar
-  $ git mailz snafu fubar
-  git-mailz: error: no patches found in snafu
+  $ git mailz -f git-mailz-tests@example.org
+  usage: git-mailz [-f ENVELOPE-SENDER] <FILE|DIRECTORY>...
   [1]
 
