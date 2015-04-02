@@ -1,6 +1,32 @@
 #!/usr/bin/env zsh
 # vim: ts=2 sts=2 sw=2 et fdm=marker cms=\ #\ %s
 
+function usage # {{{
+{
+  local self="$_SELF" exit=${1?} fd=1
+  shift
+  test $exit -ne 0 && fd=2
+  {
+    if (( exit == 1 )); then
+      print -f "%s: error: option -%c requires an argument\n" -- "$self" "$1"
+    elif (( exit == 2 )); then
+      print -f "%s: error: unknown option -%s\n" -- "$self" "$1"
+    elif (( exit == 3 )); then
+      print -f "%s: error: missing operand\n" -- "$self"
+    fi
+    print -f "usage: %s [-f ENVELOPE-SENDER] <FILE|DIRECTORY>...\n" -- "$self"
+    if (( exit == 0 )); then
+      print -f "  Options:\n"
+      print -f "    %-20s  %s\n" -- \
+        "-h"        "Display this message" \
+        "-f ENVELOPE-SENDER" \
+                    "Invoke mailz.sendmail with -f ENVELOPE-SENDER" \
+
+    fi
+  } >&$fd
+  exit $(( exit != 0 ))
+} # }}}
+
 function complain # {{{
 {
   local -r ex=$1 fmt=$2; shift 2
@@ -39,19 +65,16 @@ declare -r sendmail=${GIT_MAILZ_SENDMAIL:-${$(git config --get mailz.sendmail):-
 set -A sendmail_args -i -t
 
 declare optname
-while getopts :f:t optname; do
+while getopts :f:h optname; do
   case $optname in
   f) sendmail_args+=(-f $OPTARG) ;;
-  t) ;; # default
-  :) complain - "option -%s requires an argument" $OPTARG; shift $# ;;
- \?) complain - "unknown option -%s" $OPTARG; shift $# ;;
+  h) usage 0 ;;
+  :) usage 1 $OPTARG ;;
+ \?) usage 2 $OPTARG ;;
   esac
 done; shift $((OPTIND - 1))
 
-if (( $# == 0 )); then
-  print -u 2 "usage: $_SELF [-f ENVELOPE-SENDER] <FILE|DIRECTORY>..."
-  exit 1
-fi
+(( $# > 0 )) || usage 3
 
 declare -a patches argexpn
 

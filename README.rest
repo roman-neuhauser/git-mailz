@@ -20,6 +20,7 @@
 
 
   `SYNOPSIS`
+       `git-mailz` -h | --help
        `git-mailz` [-f *ENVELOPE-SENDER*] [*FILE* | *DIRECTORY*]...
 
   `DESCRIPTION`
@@ -29,6 +30,12 @@
        Recipients and sender are picked up from headers.
 
     `Options`
+       `-h`
+         Display usage information.
+
+       `--help`
+         Display man page.
+
        `-f` *ENVELOPE-SENDER*
          Invoke `mailz.sendmail` with `-f` *ENVELOPE-SENDER*.
 

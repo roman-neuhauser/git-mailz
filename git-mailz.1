@@ -14,6 +14,8 @@
 .\" SYNOPSIS {{{
 .Sh SYNOPSIS
 .Nm
+.Fl h | \-help
+.Nm
 .Op Fl f Ar ENVELOPE-SENDER
 .Ar FILE|DIRECTORY Ns \&...
 .\" SYNOPSIS }}}
@@ -27,6 +29,10 @@ and are expected to be complete email messages.
 Recipients and sender are picked up from headers.
 .Ss Options
 .Bl -tag -width "xxx"
+. It Fl h
+Display usage information.
+. It Fl \-help
+Display man page.
 . It Fl f Ar ENVELOPE-SENDER
 Invoke
 . Va mailz.sendmail
