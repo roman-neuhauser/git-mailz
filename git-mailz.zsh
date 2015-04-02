@@ -38,14 +38,13 @@ declare -r sendmail=${GIT_MAILZ_SENDMAIL:-${$(git config --get mailz.sendmail):-
 
 set -A sendmail_args -i -t
 
-while [[ $# -gt 0 && $1 == -* ]]; do
-  case $1 in
-  -f) sendmail_args+=($1 $2); shift ;;
-  -t) ;; # default
-  --) shift; break ;;
+declare optname
+while getopts f:t optname; do
+  case $optname in
+  f) sendmail_args+=(-f $OPTARG) ;;
+  t) ;; # default
   esac
-  shift
-done
+done; shift $((OPTIND - 1))
 
 if (( $# == 0 )); then
   print -u 2 "usage: $_SELF [-f ENVELOPE-SENDER] <FILE|DIRECTORY>..."
