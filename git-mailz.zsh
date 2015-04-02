@@ -30,7 +30,11 @@ function usage # {{{
 function complain # {{{
 {
   local -r ex=$1 fmt=$2; shift 2
-  print -u 2 -f "%s: error: " $_SELF
+  local banner="%s: error: "
+  if (( 111 == ex )); then
+    banner="%s: internal error: "
+  fi
+  print -u 2 -f $banner $_SELF
   print -u 2 -f "$fmt\n" -- "$@"
   [[ $ex != - ]] && exit $ex
 } # }}}
@@ -71,6 +75,7 @@ while getopts :f:h optname; do
   h) usage 0 ;;
   :) usage 1 $OPTARG ;;
  \?) usage 2 $OPTARG ;;
+  ?) complain 111 "unhandled option -$optname" ;;
   esac
 done; shift $((OPTIND - 1))
 
