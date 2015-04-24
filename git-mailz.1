@@ -43,9 +43,15 @@ with
 .Ss Configuration
 .Bd -literal
 [mailz]
+  sender = ENVELOPE-SENDER
   sendmail = EXE
 .Ed
 .Bl -tag -width "xxx"
+. It mailz.sender
+Invoke
+. Va mailz.sendmail
+with
+. Fl f Ar ENVELOPE-SENDER .
 . It mailz.sendmail
 Feed patches to
 . Va EXE .
@@ -56,8 +62,14 @@ Defaults to
 .\" ENVIRONMENT {{{
 .Sh ENVIRONMENT
 .Bl -tag -width xxx
+.It Ev GIT_MAILZ_SENDER
+Override
+.Va mailz.sender
+configuration.
 .It Ev GIT_MAILZ_SENDMAIL
-Override the program patches are fed to.
+Override
+.Va mailz.sendmail
+configuration.
 .El
 .Pp
 .Nm

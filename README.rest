@@ -41,14 +41,21 @@
 
     `Configuration`
        [mailz]
+         sender = ENVELOPE-SENDER
          sendmail = EXE
+
+       `mailz.sender`
+         Invoke `mailz.sendmail` with `-f` *ENVELOPE-SENDER*.
 
        `mailz.sendmail`
          Feed patches to `EXE`.  Defaults to `sendmail`.
 
   `ENVIRONMENT`
+       `GIT_MAILZ_SENDER`
+         Override `mailz.sender` configuration.
+
        `GIT_MAILZ_SENDMAIL`
-         Override the program patches are fed to.
+         Override `mailz.sendmail` configuration.
 
        `git-mailz` is implemented in terms of third-party commands which
        use environment variables.  This means `git-mailz` may be influenced

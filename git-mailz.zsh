@@ -65,13 +65,12 @@ set -o err_return
 declare -r _SELF=${0##*/}
 
 declare -r sendmail=${GIT_MAILZ_SENDMAIL:-${$(git config --get mailz.sendmail):-sendmail}}
-
-set -A sendmail_args -i -t
+declare sender=${GIT_MAILZ_SENDER:-$(git config --get mailz.sender)}
 
 declare optname
 while getopts :f:h optname; do
   case $optname in
-  f) sendmail_args+=(-f $OPTARG) ;;
+  f) sender=$OPTARG ;;
   h) usage 0 ;;
   :) usage 1 $OPTARG ;;
  \?) usage 2 $OPTARG ;;
@@ -82,6 +81,11 @@ done; shift $((OPTIND - 1))
 (( $# > 0 )) || usage 3
 
 declare -a patches argexpn
+set -A sendmail_args -i -t
+
+if [[ -n $sender ]]; then
+  sendmail_args+=(-f $sender)
+fi
 
 for arg in "$@"; do
   if [[ -d $arg ]]; then
