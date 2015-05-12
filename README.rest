@@ -48,7 +48,7 @@
          Invoke `mailz.sendmail` with `-f` *ENVELOPE-SENDER*.
 
        `mailz.sendmail`
-         Feed patches to `EXE`.  Defaults to `sendmail`.
+         Feed patches to `EXE`.  Defaults to `/usr/sbin/sendmail`.
 
   `ENVIRONMENT`
        `GIT_MAILZ_SENDER`

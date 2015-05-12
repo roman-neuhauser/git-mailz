@@ -64,7 +64,7 @@ set -o err_return
 
 declare -r _SELF=${0##*/}
 
-declare -r sendmail=${GIT_MAILZ_SENDMAIL:-${$(git config --get mailz.sendmail):-sendmail}}
+declare -r sendmail=${GIT_MAILZ_SENDMAIL:-${$(git config --get mailz.sendmail):-/usr/sbin/sendmail}}
 declare sender=${GIT_MAILZ_SENDER:-$(git config --get mailz.sender)}
 
 declare optname
