@@ -17,7 +17,7 @@
 .Fl h | \-help
 .Nm
 .Op Fl f Ar ENVELOPE-SENDER
-.Ar FILE|DIRECTORY Ns \&...
+.Bro Ar FILE | DIRECTORY Brc Ns \&...
 .\" SYNOPSIS }}}
 .
 .\" DESCRIPTION {{{
@@ -83,6 +83,13 @@ may be influenced by environment variables used by
 .Xr zsh 1 ,
 possibly others.
 .\" ENVIRONMENT }}}
+.\" FILES {{{
+.Sh FILES
+.Nm
+uses
+.Xr git-config 1
+to retrieve configuration settings.
+.\" FILES }}}
 .\" EXAMPLES {{{
 .\"Sh EXAMPLES
 .\" EXAMPLES }}}

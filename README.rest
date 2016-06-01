@@ -21,7 +21,7 @@
 
   `SYNOPSIS`
        `git-mailz` -h | --help
-       `git-mailz` [-f *ENVELOPE-SENDER*] [*FILE* | *DIRECTORY*]...
+       `git-mailz` [-f *ENVELOPE-SENDER*] {*FILE* | *DIRECTORY*}...
 
   `DESCRIPTION`
        Feeds patches given on the command line to *sendmail(1)*.
@@ -60,6 +60,9 @@
        `git-mailz` is implemented in terms of third-party commands which
        use environment variables.  This means `git-mailz` may be influenced
        by environment variables used by *git(1)*, *zsh(1)*, possibly others.
+
+  `FILES`
+       `git-mailz` uses *git-config(1)* to retrieve configuration settings.
 
   `DIAGNOSTICS`
        The `git-mailz` utility exits 0 on success, and >0 if an error occurs.
