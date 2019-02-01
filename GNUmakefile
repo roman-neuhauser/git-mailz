@@ -40,7 +40,7 @@ clean:
 
 .PHONY: check
 check: $(.DEFAULT_GOAL)
-	env -i CRAM="$(CRAM)" PATH="$$PATH:$$PWD/tests:$$PWD" SHELL="$(SHELL)" $(CRAMCMD) --shell=tsh tests
+	env -i CRAM="$(CRAM)" PATH="$$PATH:$$PWD/t:$$PWD" SHELL="$(SHELL)" $(CRAMCMD) --shell=tsh t
 
 .PHONY: html
 html: README.html
@@ -62,16 +62,19 @@ tarball: .git
 %.gz: %
 	$(GZIPCMD) -cn $< | tee $@ >/dev/null
 
+%.1: m/%.1
+	$(INSTALL_DATA) $< $@
+
 %.html: %.rest
 	$(RST2HTML) --strict $< $@
 
-$(name): $(name).zsh
+$(name): s/$(name).zsh
 	$(INSTALL_SCRIPT) $< $@
 
-$(name).spec: $(name).spec.in
+$(name).spec: p/$(name).spec.in
 	$(call subst_version,^Version:)
 
-PKGBUILD: PKGBUILD.in
+PKGBUILD: p/PKGBUILD.in
 	$(call subst_version,^pkgver=)
 
 define subst_version
